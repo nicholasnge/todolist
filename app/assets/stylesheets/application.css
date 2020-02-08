@@ -1,0 +1,186 @@
+.wrapper{
+  width: 100%;
+  height: 7vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_box{
+  width: 45%;
+  position: relative;
+}
+
+.search_box input[type="text"]{
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  background: #FFF;
+  border: solid;
+  border-color: #FFF;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #6C757D;
+  outline: none;
+  text-align: center;
+}
+.search_box:hover{
+  border: solid;
+  border-radius: 10px;
+  border-color: #A9A9A9;
+}
+::-webkit-input-placeholder {
+  color: #6C757D;
+}
+::-moz-placeholder {
+  color: #6C757D;
+}
+:-ms-input-placeholder {
+  color: #6C757D;
+}
+
+
+.bg_primary-color {
+  background-color: #FFFFFF;
+}
+.primary-color {
+  background-color: #FFFFFF;
+}
+.bg_secondary-color {
+  background-color: #293241;
+}
+.secondary-color {
+  color: #293241;
+}
+.custom-button.btn {
+  background-color: #696969;
+  color: #FFF;
+  border: solid;
+  border-color: #696969;
+}
+.tag-button.btn {
+  background-color: #DCDCDC;
+  color: #293241;
+  border: none;
+  margin: 3px 3px 3px 3px;
+  padding: 4px 4px 4px 4px;
+  font-size: 12px;
+}
+.tag-button.btn:hover {
+  background-color: #A9A9A9 !important;
+  border: none;
+}
+.custom-button.btn:hover {
+  background-color: #FFF !important;
+  color: #696969;
+  border: solid;
+  border-color: #696969;
+}
+.custom-impt-label{
+    background-color: #FFAFA2;
+    color: #FFF;
+    border: none;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+}
+.custom-meh-label{
+    background-color: #93CDFF;
+    color: #FFF;
+    border: none;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+}
+.custom-new.btn{
+    background-color: #77DDA1;
+    color: #FFF;
+    border: solid;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+}
+.custom-new.btn:hover {
+  background-color: #FFF !important;
+  color: #77DDA1;
+  border: solid;
+}
+.custom-impt-card{
+    background-color: #FFF;
+    color: #293241;
+    border: solid;
+    border-color: #DCDCDC;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 10px;
+    outline: none;
+    text-align: left;
+}
+.custom-impt-card:hover {
+    border-color: #FFAFA2;
+}
+.custom-meh-card{
+    background-color: #FFF;
+    color: #293241;
+    border: solid;
+    border-color: #DCDCDC;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 10px;
+    outline: none;
+    text-align: left;
+}
+.custom-meh-card:hover {
+    border-color: #93CDFF;
+}
+.custom-impt-singleclick-card {
+    background-color: #FFAFA2;
+    color: #293241;
+    border: solid;
+    border-color: #FFAFA2;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 10px;
+    outline: none;
+    text-align: left;
+}
+.custom-meh-singleclick-card {
+    background-color: #93CDFF;
+    color: #293241;
+    border: solid;
+    border-color: #93CDFF;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 10px;
+    outline: none;
+    text-align: left;
+}
+.custom-selectedTag {
+    background-color: #FFF;
+    color: #293241;
+    border: solid;
+    border-radius: 20px;
+    border-color: #DCDCDC;
+    padding: 15px;
+}
