@@ -31,7 +31,7 @@ function SelectedTodo(props) {
               ? <div></div>
 
               :<button type="button" className="btn custom-button" onClick={props.toggleState}>
-                {(props.halloffame) ? "Restore Todo" : "Complete Todo"}
+                {(props.halloffame) ? "Delete Forever" : "Complete Todo"}
               </button>}
           </div>
         </div>

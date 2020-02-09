@@ -14,13 +14,6 @@ class NewTodo extends React.Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
-  }
-
-  stripHtmlEntities(str) {
-    return String(str)
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
   }
 
   onChange(event) {
@@ -42,9 +35,9 @@ class NewTodo extends React.Component {
       }
 
       const body = {
-          content: content.replace(/\n/g, "<br> <br>"),
+          content,
           priority,
-          details: details.replace(/\n/g, "<br> <br>"),
+          details: details.replace(/\n/g, "<p></p>"),
           all_tags,
           completed
       };

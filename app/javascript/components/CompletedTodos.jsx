@@ -58,6 +58,7 @@ class CompletedTodos extends React.Component {
       .then(() => this.props.history.push(`/completed`))
       .catch(error => console.log(error.message));
       this.componentDidMount();
+      this.componentDidMount();
   }
   handleSearch(e) {
       this.setState({searchbar: e.target.value});

@@ -62,6 +62,7 @@ deleteTodo() {
     .then(() => this.props.history.push(`/todos`))
     .catch(error => console.log(error.message));
     this.componentDidMount();
+    this.componentDidMount();
 }
 
   handleSearch(e) {
