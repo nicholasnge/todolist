@@ -167,6 +167,19 @@
 .custom-completed-card:hover {
     border-color: #696969;
 }
+.completed-selected-card{
+    background-color: #77DDA1;
+    color: #293241;
+    border: solid;
+    border-color: #696969;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 10px;
+    outline: none;
+    text-align: left;
+}
 .custom-impt-singleclick-card {
     background-color: #FFAFA2;
     color: #293241;

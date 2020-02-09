@@ -17,7 +17,7 @@ function CompletedTodo(props) {
         </div>
 
     return (props.todo.id == props.selected_id)
-        ?  <div key={props.id} className="custom-completed-card mb-2">
+        ?   <div key={props.id} className="completed-selected-card mb-2">
                 {content}
                 {tags}
             </div>
