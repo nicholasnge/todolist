@@ -4,6 +4,7 @@ class CreateTodos < ActiveRecord::Migration[6.0]
       t.text :content
       t.boolean :priority
       t.text :details
+      t.boolean :completed
 
       t.timestamps
     end

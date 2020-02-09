@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       get 'todos/index'
       post 'todos/create'
+      patch 'todos/update/:id', to: 'todos#update'
       get '/show/:id', to: 'todos#show'
       delete '/destroy/:id', to: 'todos#destroy'
     end

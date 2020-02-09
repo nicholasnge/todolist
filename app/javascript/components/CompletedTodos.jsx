@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SelectedTodo from "./SelectedTodo";
-import Todo from "./Todo";
+import CompletedTodo from "./CompletedTodo";
 
-class Todos extends React.Component {
+class CompletedTodos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos_impt: [],
-      todos_meh: [],
+      todos_completed: [],
       selected: {   id: -1,
                     content: "Select a Todo to view details",
                     all_tags: []},
@@ -25,12 +24,11 @@ class Todos extends React.Component {
             }
             throw new Error ("Network response cmi");
         })
-        .then(response => this.setState({todos_impt: response.todos_impt,
-                                         todos_meh: response.todos_meh,
+        .then(response => this.setState({todos_completed: response.todos_completed,
                                          selected: { id: -1,
                                                      content: "Select a Todo to view details",
-                                                 all_tags: []}
-                                         }))
+                                                     all_tags: []}
+                                                    }))
         .catch(() => this.props.history.push("/"));
   }
 
@@ -40,30 +38,27 @@ class Todos extends React.Component {
   selectTag(tagname) {
     this.setState({searchbar: tagname});
   }
+  deleteTodo() {
+    const url = `/api/v1/destroy/${this.state.selected.id}`;
+    const token = document.querySelector('meta[name="csrf-token"]').content;
 
-deleteTodo() {
-  const url = `/api/v1/todos/update/${this.state.selected.id}`;
-  const token = document.querySelector('meta[name="csrf-token"]').content;
-
-  fetch(url, {
-    method: "PATCH",
-    headers: {
-      "X-CSRF-Token": token,
-      "Content-Type": "application/json"
-  },
-    body: JSON.stringify( { completed: true } )
-  })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error("Network response was not ok.");
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "X-CSRF-Token": token,
+        "Content-Type": "application/json"
+    }
     })
-    .then(() => this.props.history.push(`/todos`))
-    .catch(error => console.log(error.message));
-    this.componentDidMount();
-}
-
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then(() => this.props.history.push(`/completed`))
+      .catch(error => console.log(error.message));
+      this.componentDidMount();
+  }
   handleSearch(e) {
       this.setState({searchbar: e.target.value});
   }
@@ -85,25 +80,20 @@ deleteTodo() {
 
   render() {
       console.log(this.state);
-    const impt_filtered = this.filterTodos(this.state.todos_impt);
-    const todos_impt = impt_filtered.map((todo, index) => (
+    const completed_filtered = this.filterTodos(this.state.todos_completed);
+    const todos_completed = completed_filtered.map((todo, index) => (
         <div key={index} onClick={this.selectTodo.bind(this,todo)}>
-        <Todo todo={todo} selected_id={this.state.selected.id} selectTag={this.selectTag.bind(this)}/>
+        <CompletedTodo todo={todo} selected_id={this.state.selected.id} selectTag={this.selectTag.bind(this)}/>
         </div>
     ));
-
-    const meh_filtered = this.filterTodos(this.state.todos_meh);
-    const todos_meh = meh_filtered.map((todo, index) => (
-        <div key={index} onClick={this.selectTodo.bind(this,todo)}>
-        <Todo todo={todo} selected_id={this.state.selected.id} selectTag={this.selectTag.bind(this)}/>
-        </div>
-    ));
+    const todos_completed_split_odd = todos_completed.filter((x, i) => i % 2);
+    const todos_completed_split_even = todos_completed.filter((x, i) => !(i % 2));
 
     return (
       <>
         <section className="jumbotron jumbotron-fluid text-center p-2 m-0">
           <div className="container">
-            <h1 className="display-4 m-0">Todo List</h1>
+            <h1 className="display-4 m-0">Hall of Fame</h1>
             <div className="row mx-5">
                 <div className="wrapper">
                     <div className="search_box">
@@ -119,30 +109,19 @@ deleteTodo() {
           <main className="container">
           <div className="row ">
             <div className="col-md-4 p-2">
-                <Link className="btn custom-new mb-1" to="/todo">
-                    <h4 className="card-title text-center m-0">+ New Todo</h4>
+                <SelectedTodo todo={this.state.selected} selectTag={this.selectTag.bind(this)} toggleState={this.deleteTodo.bind(this)} halloffame={true}/>
+
+                <Link className="btn custom-completed my-1" to="/todos">
+                    <h5 className="card-title text-center m-0">Back to Reality</h5>
                 </Link>
-
-                <SelectedTodo todo={this.state.selected} selectTag={this.selectTag.bind(this)} toggleState={this.deleteTodo.bind(this)}/>
-
-                <Link className="btn custom-completed my-1" to="/completed">
-                    <h5 className="card-title text-center m-0">Hall of Fame</h5>
-                </Link>
-
             </div>
 
             <div className="col-md-4 p-2">
-                <div className="custom-impt-label mb-1">
-                    <h4 className="card-title text-center m-0"> Important</h4>
-                </div>
-                {(todos_impt) ? todos_impt : {}}
+                {(todos_completed_split_even) ? todos_completed_split_even : {}}
             </div>
 
             <div className="col-md-4 p-2">
-                <div className="custom-meh-label mb-1">
-                    <h4 className="card-title text-center m-0"> Meh</h4>
-                </div>
-                {(todos_meh) ? todos_meh : {}}
+                {(todos_completed_split_odd) ? todos_completed_split_odd : {}}
             </div>
             </div>
           </main>
@@ -151,4 +130,4 @@ deleteTodo() {
     );
   }
 }
-export default Todos;
+export default CompletedTodos;

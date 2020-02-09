@@ -8,7 +8,8 @@ class NewTodo extends React.Component {
       content: "",
       priority: false,
       details: "",
-      all_tags: ""
+      all_tags: "",
+      completed: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -33,11 +34,9 @@ class NewTodo extends React.Component {
     }
 
   onSubmit(event) {
-      console.log(this.state);
       event.preventDefault();
       const url = "/api/v1/todos/create";
-      const { content, priority, details, all_tags } = this.state;
-
+      const { content, priority, details, all_tags, completed } = this.state;
       if (content.length == 0 || all_tags.length == 0) {
           return;
       }
@@ -46,7 +45,8 @@ class NewTodo extends React.Component {
           content: content.replace(/\n/g, "<br> <br>"),
           priority,
           details: details.replace(/\n/g, "<br> <br>"),
-          all_tags
+          all_tags,
+          completed
       };
 
       const token = document.querySelector('meta[name="csrf-token"]').content;

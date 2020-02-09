@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Todos from "../components/Todos";
 import Todo from "../components/Todo";
 import NewTodo from "../components/NewTodo";
+import CompletedTodos from "../components/CompletedTodos";
 
 export default (
   <Router>
@@ -12,6 +13,7 @@ export default (
       <Route path="/todos" exact component={Todos} />
       <Route path="/todo/:id" exact component={Todo} />
       <Route path="/todo" exact component={NewTodo} />
+      <Route path="/completed" exact component={CompletedTodos} />
     </Switch>
   </Router>
 );

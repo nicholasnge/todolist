@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_031018) do
     t.text "content"
     t.boolean "priority"
     t.text "details"
+    t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

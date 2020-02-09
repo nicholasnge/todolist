@@ -148,7 +148,24 @@
     text-align: left;
 }
 .custom-meh-card:hover {
+    border: solid;
     border-color: #93CDFF;
+}
+.custom-completed-card{
+    background-color: #77DDA1;
+    color: #293241;
+    border: solid;
+    border-color: #77DDA1;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 10px;
+    outline: none;
+    text-align: left;
+}
+.custom-completed-card:hover {
+    border-color: #696969;
 }
 .custom-impt-singleclick-card {
     background-color: #FFAFA2;
@@ -183,4 +200,21 @@
     border-radius: 20px;
     border-color: #DCDCDC;
     padding: 15px;
+}
+.custom-completed.btn{
+    background-color: #DCDCDC;
+    color: #6C757D;
+    border: solid;
+    border-color: #DCDCDC;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+}
+.custom-completed.btn:hover {
+  background-color: #FFF !important;
+  color: #6C757D;
 }

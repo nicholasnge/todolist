@@ -18,7 +18,7 @@ function SelectedTodo(props) {
             <h5 className="card-title"> {props.todo.content}</h5>
             <hr></hr>
           </div>
-          <div className="card-body px-1 py-0">
+          <div className="card-body px-1 py-0 text-break">
               {props.todo.details}
           </div>
 
@@ -30,8 +30,8 @@ function SelectedTodo(props) {
             {(props.todo.id == -1)
               ? <div></div>
 
-              :<button type="button" className="btn custom-button" onClick={props.deleteTodo}>
-                Complete Todo
+              :<button type="button" className="btn custom-button" onClick={props.toggleState}>
+                {(props.halloffame) ? "Restore Todo" : "Complete Todo"}
               </button>}
           </div>
         </div>
